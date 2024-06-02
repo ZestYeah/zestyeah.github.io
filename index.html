@@ -1,173 +1,208 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <script src="https://kit.fontawesome.com/d3c9fc67a3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/solid.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/thinline.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
     <title>Welcome to Raybot</title>
-    <!--link href="/main.css" rel="stylesheet" type="text/css" /-->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
-        .chat-container {
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            padding: 20px;
+        @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap");
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: "Nunito", sans-serif;
         }
-        
-        .chat-bubbles {
-            flex-grow: 1;
-            overflow-y: auto;
+        body{
+            overflow: none;
         }
-        
-        .user-input {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 95%;
-            padding: 10px;
-            background-color: #f4f4f4;
-            display: flex;
+        main {
+          width: 100vw;
+          height: 100%;
+          position: absolute;
+          background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%);
+          overflow: hidden;
         }
-        
-        .user-input input {
-            flex-grow: 1;
-            margin-right: 10px;
-            padding: 8px;
-            border: none;
-            border-radius: 10px;
+        main .topper {
+          width: 100%;
+          height: auto;
+          background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+          padding: 10px;
+          position: sticky;
+          z-index: 1;
+          top: 0;
+          right: 0;
+          display: flex;
+          align-items: center;
+          justify-content: start;
         }
-        
-        .chat-bubble {
-            max-width: 70%;
-            margin-bottom: 10px;
-            padding: 10px;
-            border-radius: 10px;
+        main .topper .icon {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background: #11ba91 url(https://blob.sololearn.com/avatars/683c8893-3f3d-4019-a7bc-0b8f4b444c2e.jpg);
+          background-size: cover;
+          margin-left: 15px;
         }
-        
-        .user-bubble {
-            align-self: flex-end;
-            background-color: #007bff;
-            color: #fff;
+        main .topper .name {
+          color: #fff;
+          font-weight: bolder;
+          margin-left: 15px;
+          font-size: 18px;
+          letter-spacing: 2px;
         }
-        
-        .bot-bubble {
-            align-self: flex-start;
-            background-color: #f4f4f4;
-            color: #333;
+        main .bottom {
+          width: 100%;
+          height: auto;
+          background: #595656;
+          position: fixed;
+          z-index: 1;
+          bottom: 0;
+          right: 0;
+          padding: 10px;
+          padding-bottom: 25px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
-
-        .thinking-bubble {
-            align-self: flex-start;
-            background-color: #e0e0e0;
-            color: #666;
-            font-style: italic;
+        main .bottom #input {
+          width: 95%;
+          height: auto;
+          background: grey;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 5px;
         }
-
-        #send {
-            cursor: pointer;
-            transition: transform 0.1s;
+        main .bottom #input input {
+          width: 90%;
+          padding: 7px;
+          border: none;
+          outline: none;
+          background: transparent;
+          color: #fff;
+          font-size: 16px;
         }
-
-        #send:active {
-            transform: scale(0.9);
+        main .bottom #input input::placeholder {
+          color: #e6e6e6;
+        }
+        main .bottom #input button {
+          padding: 5px 10px;
+          margin: 0 5px;
+          font-size: 20px;
+          border-radius: 10px;
+          color: #fff;
+          transition: 0.2s;
+          outline: none;
+          border: none;
+          background: transparent;
+        }
+        main .bottom #input button:active {
+          scale: 0.96;
+          background: #13d2a3;
+          opacity: 0.4;
+        }
+        main .bottom::after {
+          content: "made by LFakh";
+          position: absolute;
+          width: 100%;
+          bottom: 4px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 13px;
+          color: #b3b3b3;
+        }
+        main .msgs_cont {
+          width: 100%;
+          height: calc(100vh - 155px);
+          overflow: auto;
+          padding: 10px;
+          padding-bottom: 15px;
+          scroll-behavior: smooth;
+        }
+        main .msgs_cont ul {
+          width: 100%;
+          padding: 5px;
+        }
+        main .msgs_cont li {
+          padding: 10px;
+          max-width: 70%;
+          margin: 10px 0;
+          background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+          color: #fff;
+          list-style-type: none;
+          border-radius: 10px;
+          color: #f2f2f2;
+          word-wrap: break-word;
+          overflow: hidden;
+          position: relative;
+        }
+        main .msgs_cont .schat {
+          float: right;
+          clear: both;
+          margin-bottom: 5px;
+          border-bottom-right-radius: 20px;
+        }
+        main .msgs_cont .rchat {
+          float: left;
+          margin-bottom: 5px;
+          background: linear-gradient(to top right, #11ba91, #0A6E55);
+          padding-left: 12px;
+          border-bottom-left-radius: 20px;
+        }
+        .typing-animation {
+          display: inline-block;
+        }
+        .dot {
+          display: inline-block;
+          width: 9px;
+          height: 9px;
+          background: #cccccc;
+          border-radius: 50%;
+          margin-right: 5px;
+          opacity: 0;
+          animation: typing-dot 1s infinite;
+        }
+        .dot:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+        .dot:nth-child(3) {
+          animation-delay: 0.4s;
+        }
+        @keyframes typing-dot {
+          0%, 20% {
+            opacity: 0;
+            transform: translateY(0);
+          }
+          50% {
+            opacity: 1;
+            transform: translateY(-7px);
+          }
+          80%, 100% {
+            opacity: 0;
+            transform: translateY(0);
+          }
+        }
+        /* Style for code blocks */
+        .rchat pre {
+          background-color: #282c34; /* Dark background */
+          color: #fff; /* White text */
+          font-family: monospace; /* Monospace font */
+          padding: 10px;
+          margin: 10px 0;
+          border-radius: 5px;
+          overflow-x: auto;
         }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-        async function callCHAT() {
-            var responseText = document.getElementById("chat-response");
-            var userInput = document.getElementById("chat-input").value;
-            var data = JSON.stringify({"prompt": userInput});
-
-            responseText.innerHTML += "<div class='chat-bubble user-bubble'>" + userInput + "</div>";
-
-            // Add a temporary thinking bubble
-            var thinkingBubble = document.createElement("div");
-            thinkingBubble.className = "chat-bubble thinking-bubble";
-            thinkingBubble.id = "thinking-bubble";
-            thinkingBubble.innerText = "Bot is thinking...";
-            responseText.appendChild(thinkingBubble);
-
-            // Scroll to the bottom of the chat
-            responseText.scrollTop = responseText.scrollHeight;
-
-            // Check if the prompt contains specific phrases
-            if (userInput.toLowerCase().includes("who made you") || 
-                userInput.toLowerCase().includes("who built you") ||
-                userInput.toLowerCase().includes("who created you") || 
-                userInput.toLowerCase().includes("who build you")) {
-                document.getElementById("thinking-bubble").remove();
-                responseText.innerHTML += "<div class='chat-bubble bot-bubble'>this is simply a simple chat app made for fun that's all, if you require any additional informations check this link https://raybot.droppages.com any additional data about your question is unavailable, as most ai are free to use, this ai will always remain free to use untill link dies.</div>";
-                return;
-            }
-
-			if (userInput.toLowerCase().includes("what are you") || 
-                userInput.toLowerCase().includes("who are you") ||
-                userInput.toLowerCase().includes("what is your name")) {
-                responseText.innerHTML += "<div class='chat-bubble user-bubble'>" + userInput + "</div>";
-                responseText.innerHTML += "<div class='chat-bubble bot-bubble'>you may call me Raybot or chat-Geb-El-tey ^-^ </div>";
-                return;
-            }
-
-
-			if (userInput.toLowerCase().includes("ya3tik 3asba")){
-                responseText.innerHTML += "<div class='chat-bubble user-bubble'>" + userInput + "</div>";
-                responseText.innerHTML += "<div class='chat-bubble bot-bubble'>zib 3la rask XD</div>";
-                return;
-            }
-
-            const badWords = ["fuck you", "motherfucker", "asshole"];
-            if (badWords.some(word => userInput.toLowerCase().includes(word))) {
-                const responses = ["be polite", "be nice", "i'm just trying to help", "maybe take some rest and return later"];
-                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-                document.getElementById("thinking-bubble").remove();
-                responseText.innerHTML += "<div class='chat-bubble bot-bubble'>" + randomResponse + "</div>";
-                return;
-            }
-
-            const response = await fetch("https://free-api.cveoy.top/v3/completions", {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: data
-            });
-
-            if (response.status == 200) {
-                const reader = response.body.getReader();
-                let fullMessage = '';
-                while (true) {
-                    const {value, done} = await reader.read();
-                    if (done) {
-                        break;
-                    }
-                    var message = new TextDecoder().decode(value);
-                    fullMessage += message;
-                }
-
-                document.getElementById("thinking-bubble").remove();
-                if (fullMessage.includes("wxgpt@qq.com")) {
-                    fullMessage = fullMessage.replace("欢迎使用公益站! 站长合作邮箱：wxgpt@qq.com", "<span style='background-color: #f4f4f4; color: #f4f4f4;'>hello, how are you ;)</span>");
-                }
-                responseText.innerHTML += "<div class='chat-bubble bot-bubble'>" + fullMessage + "</div>";
-            } else {
-                document.getElementById("thinking-bubble").remove();
-                responseText.innerHTML += "<div class='chat-bubble bot-bubble'>Your question is invalid, please try again!</div>";
-            }
-
-            // Clear user input
-            document.getElementById("chat-input").value = "";
-            
-            // Scroll to the bottom of the chat
-            responseText.scrollTop = responseText.scrollHeight;
-        }
-
-        // Add event listener for the Enter key
-        document.getElementById("chat-input").addEventListener("keypress", function(event) {
-            if (event.key === "Enter") {
-                callCHAT();
-            }
-        });
-        
-            var OriginTitle=document.title; 
+    <script>
+    
+                var OriginTitle=document.title; 
     var st; 
     document.addEventListener('visibilitychange',function(){ 
         if(document.hidden){ 
@@ -180,16 +215,136 @@
             },4000); 
         } 
     });
-        
+      
+    
+        async function callCHAT() {
+            var responseText = document.getElementById("list_cont");
+            var userInput = document.getElementById("txt").value;
+            var data = JSON.stringify({"prompt": userInput});
+
+            responseText.innerHTML += "<li class='schat'>" + userInput + "</li>";
+
+            // Add a temporary thinking bubble
+            var thinkingBubble = document.createElement("li");
+            thinkingBubble.className = "rchat";
+            thinkingBubble.id = "thinking-bubble";
+            thinkingBubble.innerText = "Bot is thinking...";
+            responseText.appendChild(thinkingBubble);
+
+            // Scroll to the bottom of the chat
+            responseText.scrollTop = responseText.scrollHeight;
+
+            // Check if the prompt contains specific phrases for predefined responses
+            if (userInput.toLowerCase().includes("who made you") || 
+                userInput.toLowerCase().includes("who built you") ||
+                userInput.toLowerCase().includes("who created you") || 
+                userInput.toLowerCase().includes("who build you")) {
+                document.getElementById("thinking-bubble").remove();
+                responseText.innerHTML += "<li class='rchat'>this is simply a simple chat app made for fun that's all, if you require any additional informations check this link https://raybot.droppages.com any additional data about your question is unavailable, as most ai are free to use, this ai will always remain free to use untill link dies.</li>";
+                return;
+            }
+
+            if (userInput.toLowerCase().includes("what are you") || 
+                userInput.toLowerCase().includes("who are you") ||
+                userInput.toLowerCase().includes("what is your name")) {
+                document.getElementById("thinking-bubble").remove();
+                responseText.innerHTML += "<li class='rchat'>you may call me Raybot or chat-Geb-El-tey ^-^ </li>";
+                return;
+            }
+
+            if (userInput.toLowerCase().includes("ya3tik 3asba")){
+                document.getElementById("thinking-bubble").remove();
+                responseText.innerHTML += "<li class='rchat'>zib 3la rask XD</li>";
+                return;
+            }
+
+            const badWords = ["fuck you", "motherfucker", "asshole"];
+            if (badWords.some(word => userInput.toLowerCase().includes(word))) {
+                const responses = ["be polite","well then fuck you too simple sir ^-^", "be nice", "i'm just trying to help", "maybe take some rest and return later"];
+                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                document.getElementById("thinking-bubble").remove();
+                responseText.innerHTML += "<li class='rchat'>" + randomResponse + "</li>";
+                return;
+            }
+
+            // Check if the prompt is an image generation request
+            if (userInput.toLowerCase().includes("create") || 
+                userInput.toLowerCase().includes("draw") || 
+                userInput.toLowerCase().includes("generate")) {
+                generateImage();
+            } else {
+                // Regular chat response
+                const response = await fetch("https://free-api.cveoy.top/v3/completions", {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: data
+                });
+
+                if (response.status == 200) {
+                    const reader = response.body.getReader();
+                    let fullMessage = '';
+                    while (true) {
+                        const {value, done} = await reader.read();
+                        if (done) {
+                            break;
+                        }
+                        var message = new TextDecoder().decode(value);
+                        fullMessage += message;
+                    }
+
+                    document.getElementById("thinking-bubble").remove();
+                    if (fullMessage.includes("wxgpt@qq.com")) {
+                        fullMessage = fullMessage.replace("欢迎使用公益站! 站长合作邮箱：wxgpt@qq.com", "<span style='background-color: transparent; color: transparent;'>hello, how are you ;)</span>");
+                    }
+                    
+                    // Replace incorrect characters
+                    const charMap = {
+                        '￠': 'à',
+                        '￩': 'é',
+                        // Add more replacements if needed
+                    };
+
+                    fullMessage = fullMessage.replace(/[￠￩]/g, function(match) {
+                        return charMap[match];
+                    });
+
+                    // Find and replace code blocks
+                    fullMessage = fullMessage.replace(/```(.*?)```/g, function (match, code){
+                        return `<pre>${code}</pre>`; 
+                    });
+
+                    responseText.innerHTML += "<li class='rchat'>" + fullMessage + "</li>";
+                } else {
+                    document.getElementById("thinking-bubble").remove();
+                    responseText.innerHTML += "<li class='rchat'>Your question is invalid, please try again!</li>";
+                }
+            }
+
+            // Clear user input
+            document.getElementById("txt").value = "";
+
+            // Scroll to the bottom of the chat
+            responseText.scrollTop = responseText.scrollHeight;
+        }
     </script>
 </head>
 <body>
-    <div class="chat-container">
-        <div id="chat-response" class="chat-bubbles"></div>
-        <div class="user-input">
-            <input name="chat" id="chat-input" type="text" placeholder="Write your message">
-            <i onclick="callCHAT()" id="send" class="material-icons">send</i>
+    <main>
+        <div class="topper">
+            <div class="icon"></div>
+            <div class="name">Raybot</div>
         </div>
-    </div>
+        <div class="msgs_cont">
+            <ul id="list_cont">
+                <li class="rchat">Welcome to Raybot! How can I assist you today?</li>
+            </ul>
+        </div>
+        <div class="bottom">
+            <div id="input">
+                <input type="text" name="text" id="txt" placeholder="Ask me anything...">
+                <button type="submit" id="send" onclick="callCHAT()"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
