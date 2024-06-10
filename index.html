@@ -23,7 +23,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 999px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -413,13 +413,13 @@
 
     <section id="contact">
         <div class="container">
-            <h2>Contact Us</h2>
             <form id="contact-form">
+             		<h2>Contact Us</h2>
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="from_name" required>
 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="from_email" required>
 
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
@@ -436,7 +436,7 @@
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#projects">Perks</a></li>
+                    <li><a href="#projects">Advantages</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -465,20 +465,21 @@
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
         (function() {
-            emailjs.init("b8a7WhK1kmfb1E-Y4");  // Initialize EmailJS with your public key
+            emailjs.init("b8a7WhK1kmfb1E-Y4");
         })();
 
         document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();  // Prevent the default form submission
+            event.preventDefault();
 
             const serviceID = 'service_chmogqp';
             const templateID = 'template_4y1qvub';
 
-            emailjs.sendForm(serviceID, templateID, this)  // Send the form data to EmailJS
+            emailjs.sendForm(serviceID, templateID, this) 
                 .then(() => {
-                    alert('Message sent successfully!');  // Success message
+                    alert('Message sent successfully!');  
+                    this.style.display = 'none';
                 }, (err) => {
-                    alert(JSON.stringify(err));  // Error message
+                    alert(JSON.stringify(err)); 
                 });
         });
 
