@@ -2,506 +2,103 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv='cache-control' content='no-cache'>
-    <meta http-equiv='expires' content='0'>
-    <meta http-equiv='pragma' content='no-cache'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="freezia Solutions - Engineering Project Assistance and Consulting - help pfe - assistance pfe - pfa projects">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Include Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Nourhene Rebai - Digital Marketing Manager</title>
     <link rel="stylesheet" href="style.css">
-    <title>freezia Solutions</title>
-    <style>
-        /* Additional CSS for responsive design and hamburger menu */
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f8f8;
-            color: #333;
-        }
-
-        .container {
-            max-width: 999px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background-color: #1c6b78;
-            color: #fccccc;
-            padding: 10px 0;
-        }
-
-        .logo h1 {
-            margin: 0;
-            font-size: 27px;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hamburger div {
-            width: 25px;
-            height: 3px;
-            background-color: #fff;
-            margin: 3px 0;
-        }
-
-        #nav-links {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-        }
-
-        #nav-links li {
-            margin-left: 20px;
-        }
-
-        #nav-links a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        /* Hero Section */
-        #hero {
-            background: #333 url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapertag.com%2Fwallpaper%2Ffull%2Fd%2Fb%2F2%2F125524-cool-electric-background-1920x1200-for-mobile.jpg&f=1&nofb=1&ipt=6c83068ae3744fa4631de656376dd4bf2dfd88f7d2979cd4d7454d6cbff9b972&ipo=images') no-repeat center center/cover;
-            color: #fff;
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        #hero h1 {
-            font-size: 48px;
-            margin: 0;
-        }
-
-        #hero p {
-            font-size: 18px;
-        }
-
-        #hero button {
-            background-color: #ff9900;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 18px;
-            margin-top: 20px;
-        }
-
-        /* Service Section */
-        #services {
-            background-color: #fff;
-            padding: 50px 0;
-        }
-
-        #services h2 {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .service-cards {
-           display: flex;
-           flex-wrap: wrap;
-           justify-content: space-around;
-        }
-
-        .service-cards .card {
-            background-color: #f8f8f8;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            flex-basis: 22%;
-            margin-bottom: 20px;
-        }
-
-        .service-cards .card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        .service-cards .card h3 {
-            font-size: 20px;
-            margin: 10px 0;
-        }
-
-        /* Project Section */
-        #projects {
-            background-color: #333;
-            color: #fff;
-            padding: 50px 0;
-        }
-
-        #projects h2 {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .project-gallery {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .project-gallery .project {
-            flex-basis: 48%;
-            margin-bottom: 20px;
-        }
-
-        .project-gallery .project img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        .project-gallery .project h3 {
-            font-size: 20px;
-            margin: 10px 0;
-        }
-
-        /* About Section */
-        #about {
-            background-color: #fff;
-            padding: 50px 0;
-        }
-
-        #about h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        #about p.z {
-            text-align: center;
-            font-size: 18px;
-        }
-
-        /* Contact Section */
-        #contact {
-            background-color: #f8f8f8;
-            padding: 50px 0;
-        }
-
-        #contact h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        #contact form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        #contact form label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        #contact form input, #contact form textarea {
-            width: 90%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin-left: 3px;
-        }
-
-        #contact form button {
-            background-color: #333;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        footer nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        footer nav ul li {
-            display: inline;
-            margin: 0 10px;
-        }
-
-        footer nav ul li a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .icons-social {
-            padding: 5px;
-            margin-top: 20px;
-        }
-
-        .list-social {
-            text-align: center;
-            padding: 0;
-            margin: 0;
-        }
-
-        .icons-social__item {
-            display: inline-block;
-            margin: 0 5px;
-        }
-
-        .icons-social__link {
-            cursor: pointer;
-            display: flex;
-            text-decoration: none;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            height: 50px;
-            width: 50px;
-            border-radius: 50%;
-            margin: 0;
-            font-size: 20px;
-            transition: all 0.3s;
-        }
-
-        .icons-social__link:hover {
-            color: #fff;
-            background-color: #636769;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-
-            #nav-links {
-                display: none;
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-                background-color: #333;
-            }
-
-            #nav-links.show {
-                display: flex;
-            }
-
-            #nav-links li {
-                margin: 10px 0;
-            }
-        }
-#projects h3, p{ 
-  margin: 10px;
-}
-    </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="logo">
-                <h1>Freezia Solutions</h1>
-            </div>
-            <nav>
-                <div class="hamburger" onclick="toggleMenu()">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <ul id="nav-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#projects">Perks</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#contact">Contact us</a></li>
-                    <li><a href="https://nourhenerebai.tn/a/">virtual assistant</a></li>
-                </ul>
-            </nav>
+        <div class="profile-pic-container">
+            <img src="Nourhene.png" alt="Nourhene Rebai" class="profile-pic">
         </div>
+        <h1>Nourhene Rebai</h1>
+        <h2>Digital Marketing Manager</h2>
     </header>
 
-    <section id="hero">
-        <div class="container">
-            <h1>Welcome to Freezia Solutions</h1>
-            <p>Your Engineering Project Assistance and Consulting Partner</p>
-            <button onclick="window.location.href='https://nourhenerebai.tn/signin';">Get Started</button>
-        </div>
-    </section>
+    <main>
+        <section id="about">
+            <h3>About Me</h3>
+            <p>Young graduate in Digital Marketing, passionate about online communication and new technologies. I have solid knowledge in social media management, content creation, and digital advertising campaigns. Motivated, creative, and eager to learn, my goal is to further develop my skills in digital marketing and contribute to the growth of an innovative company.</p>
+        </section>
 
-    <section id="about">
-        <div class="container">
-            <h2>About Us</h2>
-            <p class="z">Freezia Solutions is dedicated to providing top-notch engineering project assistance and consulting services. Our team of experienced professionals is here to help you succeed in your engineering endeavors.</p>
-        </div>
-    </section>
+        <section id="experience">
+            <h3>Professional Experience</h3>
+            <ul>
+                <li>2025 (1 month): Department Supervisor – Sahar Security, Sousse</li>
+                <li>2025 (7 months): Department Supervisor - Bookstore, Sousse</li>
+                <li>2024 - 2025 (7 months): Employee - Verpack Company, Sousse</li>
+                <li>2024 (3 months): Employee - METS Company, Sousse.</li>
+                <li>2024 (6 months): Employee - Hutchinson Company, Sousse</li>
+                <li>2023 (2 months): Seasonal Employee - Leather Company, Sousse</li>
+                <li>2022 (3 months): Seasonal Sales Assistant - Clothing Store, Sousse</li>
+                <li>July 2021: Seasonal Sales Assistant - Pastry Shop, Sousse</li>
+                <li>June 2020: Seasonal Employee - Sewing Workshop, Sousse</li>
+                <li>June 2019: Seasonal Sales Assistant – Grocery Store, Sousse</li>
+                <li>June 2018: Seasonal Employee - Sewing Workshop, Sousse</li>
+            </ul>
+        </section>
 
-    <section id="services" class="container">
-        <h2>Our Services</h2>
-        <div class="service-cards">
-            <div class="card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ5UiekEcDKIuzZMaiHqNmX4hu6wvCTdCAkRcmHX55Ov_E11U6F&usqp=CAU" alt="Responsive Site">
-                <h3>Responsive Sites</h3>
-                <p>Comprehensive web solutions including responsive design, front-end, and back-end development.</p>
+        <section id="internships">
+            <h3>Internships</h3>
+            <ul>
+                <li>2023 - 2024: Final Year Internship – TTM Trocadéro Techno Machine</li>
+                <li>July - August 2023: Advanced Internship - Ibdaa Advertising Agency</li>
+                <li>January 2022: Introductory Internship – Meublateux Company</li>
+            </ul>
+        </section>
+
+        <section id="education">
+            <h3>Education & Training</h3>
+            <ul>
+                <li><strong>Baccalaureate in Economics and Management (2020 - 2021)</strong> - Ibn Rochd High School, Sousse</li>
+                <li><strong>Bachelor's Degree in Digital Marketing (2024 – 2025)</strong> - Higher Institute of Technological Studies (ISET), Ksar Hellal – Monastir</li>
+                <li><strong>Entrepreneurship Training (2024 – 2025)</strong> - Polytechnic of Sousse</li>
+            </ul>
+        </section>
+
+        <section id="skills-languages">
+            <div id="skills">
+                <h3>Skills</h3>
+                <ul>
+                    <li>Project Management</li>
+                    <li>Social Media Management</li>
+                    <li>Internal Communication</li>
+                    <li>Data Analysis</li>
+                </ul>
             </div>
-            <div class="card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS9rF9rhuW442caJIFuwyaAPVBYnFX3IexLTu_O499g0mDHpzch&usqp=CAU" alt="Idea Completion">
-                <h3>Design</h3>
-                <p>From logos and graphic design to project ideation and affiliate marketing, we handle all aspects of your creative needs.</p>
+            <div id="languages">
+                <h3>Languages</h3>
+                <ul>
+                    <li>Arabic</li>
+                    <li>French</li>
+                    <li>English</li>
+                    <li>German</li>
+                </ul>
             </div>
-            <div class="card">
-                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.q1oBwmFpNMpIEkZkCyo9cwHaHa%26pid%3DApi&f=1" alt="Industrial Electronics">
-                <h3>Industrial Electronics</h3>
-                <p class='z'>Enterprise-level projects utilizing Arduino, Raspberry Pi, STM32 ARM, and a wide range of sensors.</p>
-            </div>
-            <div class="card">
-                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.pEFwyGXJ_RVXYUFjkEcxDgHaF8%26pid%3DApi&f=1" alt="Game Development">
-                <h3>Game Development</h3>
-                <p class='z'>From art and sprites to audio, 3D models, and crowdfunding support, we offer comprehensive game development services.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
+        <section id="interests">
+            <h3>Interests</h3>
+            <ul>
+                <li>Photography</li>
+                <li>Hiking</li>
+                <li>Visual Creation and Design</li>
+            </ul>
+        </section>
 
-    <section id="projects">
-        <div class="container">
-            <h2>Perks</h2>
-            <div class="project-gallery">
-                <div class="project">
-                    <img src="https://dl.dropbox.com/scl/fi/rqpiucsdts8lk28w6pe5i/IMG_20240609_175341.png?rlkey=56uqnzrf6qxju2nk9lpbjtqr4&" alt="Project 1">
-                    <h3>Comprehensive Support</h3>
-                    <p>Benefit from cutting-edge solutions that drive efficiency and success in your projects at convincing prices.</p>
-                </div>
-                <div class="project">
-                    <img src="https://dl.dropbox.com/scl/fi/ce40r2a3arfa6kmwy5cmq/IMG_20240609_175923.png?rlkey=lpee5bb28pqvgomqasltfv63q&" alt="Project 2">
-                    <h3>Client-Centric Approach</h3>
-                    <p>Experience a client-focused methodology that prioritizes your needs and delivers customized solutions on schedule.</p>
-                </div>
-                <div class="project">
-                    <img src="https://dl.dropbox.com/scl/fi/rkebayd31aw3higppjrwj/IMG_20240609_175322.png?rlkey=zbs9s4hc0kluwlo4o48xe2tv7&" alt="Project 3">
-                    <h3>Confidentiality</h3>
-                    <p>Enjoy end-to-end support throughout your project lifecycle, ensuring seamless execution and optimal results.</p>
-                </div>
-                <div class="project">
-                    <img src="https://dl.dropbox.com/scl/fi/4wn6omjqbwf8xpuviq4ah/IMG_20240609_175301.png?rlkey=apobusqgbtg7w2btt5iergofu&" alt="Project 4">
-                    <h3>Access to Experts</h3>
-                    <p>Collaborate with industry leaders and leverage their expertise to enhance your projects..</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container">
-            <form id="contact-form">
-             		<h2>Contact Us</h2>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="from_name" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="from_email" required>
-
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    </section>
+        <section id="contact">
+            <h3>Contact Details</h3>
+            <p>Hay Riadh, Sousse, Tunisia</p>
+            <p>nourhenerebai4@gmail.com</p>
+            <p>+216 27 766 239</p>
+        </section>
+    </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2024 Freezia Solutions. All rights reserved.</p>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#projects">Advantages</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="icons-social">
-                <ul class="list-social">
-                    <li class="icons-social__item">
-                        <a class="icons-social__link" href="#">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                    </li>
-                    <li class="icons-social__item">
-                        <a class="icons-social__link" href="#">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li class="icons-social__item">
-                        <a class="icons-social__link" href="#">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <p>&copy; 2026 Nourhene Rebai</p>
     </footer>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-        (function() {
-            emailjs.init("b8a7WhK1kmfb1E-Y4");
-        })();
 
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const serviceID = 'service_chmogqp';
-            const templateID = 'template_4y1qvub';
-
-            emailjs.sendForm(serviceID, templateID, this) 
-                .then(() => {
-                    alert('Message sent successfully!');  
-                    this.style.display = 'none';
-                }, (err) => {
-                    alert(JSON.stringify(err)); 
-                });
-        });
-
-        function toggleMenu() {
-            const navLinks = document.getElementById('nav-links');
-            navLinks.classList.toggle('show');
-        }
-    </script>
-    
-    <script>
-        function toggleMenu() {
-            var navLinks = document.getElementById('nav-links');
-            navLinks.classList.toggle('show');
-        }
-
-        // Function to handle Google Translate element
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-        }
-    </script>
-
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-</body>
+    <canvas id="rose-petals"></canvas>
+    <script src="script.js"></script>
 </body>
 </html>
